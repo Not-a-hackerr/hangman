@@ -26,3 +26,6 @@ def check_guess(guessed_letter):
 while True:
     letter = ask_for_letter()
     check_guess(letter)
+
+
+
