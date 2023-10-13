@@ -8,12 +8,16 @@ Hangman is a classic game in which a player thinks of a word and the other playe
 - If the user guessing correctly guesses the word before they run out of attempts they are the winner, although if the user cannot guess the word in the set number of attempts, the inital user who entered the word is the winner
 
 ### Project Aims
-- This project is here to enable me to develop my OOP skills and present my current skills
+- This project will enable me to develop my OOP skills
+- Understand how to implement abstraction, encapsulation and inhertence
+- Use git for continuous version control 
+- Use GitHub in a for live project development
+
 
 ### What I have learnt 
 
-
-
+## Milestone 1
+Here was where the basic knowlegde for game Hangman was developed. Have small functionality of how to encapsulate data into functions to allow for clear separation of what different parts of code do.   
 
 ## Installation instructions
 
