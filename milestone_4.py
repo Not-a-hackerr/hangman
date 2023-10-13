@@ -9,18 +9,17 @@ class Hangman:
     def __init__(self, word_list, num_lives=5):
         self.word_list = word_list
         self.num_lives = int(num_lives)
-        self.word = word_to_be_guessed
-        self.word_guessed = ["_" for num_of_letters_in_word in self.word]
+        self.word_guessed = ["_" for num_of_letters_in_word in word_to_be_guessed]
         self.list_of_guesses = []
-        self.num_letters = len(self.word)
+        self.num_letters = len(word_to_be_guessed)
 
     def check_guess(self, guessed_letter):
         
         if guessed_letter in word_to_be_guessed:
             print(f"Good guess! {guessed_letter} is in this word")
-            for letter in self.word:
+            for letter in word_to_be_guessed:
                 if guessed_letter == letter:
-                    letter_index = self.word.index(letter)
+                    letter_index = word_to_be_guessed.index(letter)
                     self.word_guessed[letter_index] = guessed_letter
             self.num_letters -= 1    
                                
