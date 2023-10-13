@@ -1,7 +1,7 @@
 import random as rd
 
-word_list = ["Pineapple", "Mango", "Plum", "Banana", "Orange"]
-print(rd.choice(word_list))
+guess_word_list = ["Pineapple", "Mango", "Plum", "Banana", "Orange"]
+print(rd.choice(guess_word_list))
 
 guess = input("Guess a letter: ")
 
