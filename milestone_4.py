@@ -9,20 +9,30 @@ class Hangman:
     def __init__(self, word_list, num_lives=5):
         self.word_list = word_list
         self.num_lives = int(num_lives)
-        word = word_to_be_guessed
-        self.word_guessed = ["_" for num_of_letters_in_word in word]
+        self.word = word_to_be_guessed
+        self.word_guessed = ["_" for num_of_letters_in_word in self.word]
         self.list_of_guesses = []
-        print(self.word_guessed)
+        self.num_letters = len(self.word)
 
     def check_guess(self, guessed_letter):
+        
         if guessed_letter in word_to_be_guessed:
             print(f"Good guess! {guessed_letter} is in this word")
+            for letter in self.word:
+                if guessed_letter == letter:
+                    letter_index = self.word.index(letter)
+                    self.word_guessed[letter_index] = guessed_letter
+            self.num_letters -= 1    
+                               
         else:
             print(f"Unlucky! {guessed_letter} is not in the word") 
+            self.num_lives -= 1
+            print(f"You have {self.num_lives} lives remaining")
 
 
     def ask_for_letter(self):
         while True:
+            print(self.word_guessed)
             users_guess  = str(input("Guess a letter: ").lower())
             if not len(users_guess) == 1 or not users_guess.isalpha():
                 print("Invalid input. Please enter a single alphabetical character.")
@@ -31,14 +41,11 @@ class Hangman:
             else:
                 self.check_guess(users_guess)
                 self.list_of_guesses.append(users_guess)
-        
-
-  
-
     
 
 
 game = Hangman(guess_word_list)
 
 game.ask_for_letter()
+
 
