@@ -12,6 +12,7 @@ class Hangman:
         self.word_guessed = ["_" for num_of_letters_in_word in word_to_be_guessed]
         self.list_of_guesses = []
         self.num_letters = len(word_to_be_guessed)
+        
 
 
     def check_guess(self, guessed_letter):

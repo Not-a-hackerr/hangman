@@ -1,6 +1,6 @@
 import random as rd
 
-guess_word_list = ["Mango", "Plum", "Orange"]
+guess_word_list = ["Mango", "Plum", "Orange", "Pinapple"]
 word_to_be_guessed = rd.choice(guess_word_list).lower()
 print(word_to_be_guessed)
 
@@ -13,7 +13,6 @@ class Hangman:
         self.num_letters = len(word_to_be_guessed)
         self.letters_remaining = word_to_be_guessed
         
-
 
     def check_guess(self, guessed_letter):
         if guessed_letter in self.letters_remaining:
