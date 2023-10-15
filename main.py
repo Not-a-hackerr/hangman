@@ -6,20 +6,24 @@ def play_game(word_list):
     Game_On = True
     while Game_On:
         if game.num_lives == 0:
-            print("You have lost!")
+            print(f"You lost! \nThe word was {game.word_to_be_guessed}")
             Game_On = False
-        elif game.num_letters > 0:
+        elif "_" in game.word_guessed:
             game.ask_for_letter()
-        elif game.num_letters == 0:
-            print("You Win!!!")
-            print(game.num_letters)        
+        elif "_" not in game.word_guessed:
+            print(game.word_guessed)
+            print(f"You Win!!!")
             Game_On = False
 
 
 Play_Again = True
 while Play_Again:
+    system("clear")
     play_game(hm.guess_word_list)
     play_again = input("Do you want to play again? (Type y for yes and n for no):")
     if play_again == "n":
+        system("clear")
         print("Good byeeee!")
         Play_Again = False
+
+
