@@ -11,23 +11,33 @@ class Hangman:
         self.word_to_be_guessed = rd.choice(guess_word_list).lower()
         self.word_list = word_list
         self.num_lives = int(num_lives)
-        self.word_guessed = ["_" for num_of_letters_in_word in self.word_to_be_guessed]
+        self.word_guessed = ["_" for letter in self.word_to_be_guessed]
         self.list_of_guesses = set()
         self.num_letters = len(self.word_to_be_guessed)
 
 
     def check_guess(self, guessed_letter):
-        if guessed_letter in self.word_to_be_guessed:
+        """
+        Checks if the letter typed has either been typed already,
+           not in the word or is in the word
+           If the letter is in the word it will fill in all the letter in the word
+        """
+
+        if guessed_letter in self.list_of_guesses:
+            system("clear")
+            print("You have already guessed")
+        elif guessed_letter in self.word_to_be_guessed:
             system("clear")
             print(f"Good guess! {guessed_letter} is in this word")
 
             for LetterPlace in (idx for idx,l in enumerate(self.word_to_be_guessed) if l==guessed_letter):
                 self.word_guessed[LetterPlace] = guessed_letter
+            # This nested for loop goes through the word to be guessed once the letter guessed is
+            # equal to a letter in the word it saves the index of that letter in the word and 
+            # tells uses the same index to replace an _ with the correct letter
             self.num_letters -= 1
 
-        elif guessed_letter in self.list_of_guesses:
-            system("clear")
-            print("You have already guessed")
+       
         else:
             system("clear")
             print(f"Unlucky! {guessed_letter} is not in the word") 
@@ -43,5 +53,5 @@ class Hangman:
         if not len(users_guess) == 1 or not users_guess.isalpha():
             print("Invalid input. Please enter a single alphabetical character.")
         else:
-            self.check_guess(users_guess)
             self.list_of_guesses.add(users_guess)
+            self.check_guess(users_guess)

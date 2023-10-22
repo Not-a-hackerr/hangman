@@ -1,6 +1,6 @@
 import random as rd
 
-guess_word_list = ["Mango", "Plum", "Orange", "Pinapple"]
+guess_word_list = ["Mango", "Plum", "Orange"]
 word_to_be_guessed = rd.choice(guess_word_list).lower()
 print(word_to_be_guessed)
 
@@ -14,6 +14,7 @@ class Hangman:
         self.letters_remaining = word_to_be_guessed
         
 
+
     def check_guess(self, guessed_letter):
         if guessed_letter in self.letters_remaining:
             print(f"Good guess! {guessed_letter} is in this word")
@@ -26,7 +27,7 @@ class Hangman:
                 else:
                     continue
             self.num_letters -= 1
-            self.letters_remaining = self.letters_remaining.replace(guessed_letter,"",1)
+            self.letters_remaining.replace(guessed_letter,"",1)
         elif guessed_letter in self.list_of_guesses:
             print("You have already guessed")
         else:
@@ -42,7 +43,7 @@ class Hangman:
             print("Invalid input. Please enter a single alphabetical character.")
         else:
             self.check_guess(users_guess)
-            self.list_of_guesses.append(users_guess)
+            # self.list_of_guesses.append(users_guess)
        
 def play_game(word_list):
     game = Hangman(word_list)
@@ -53,7 +54,6 @@ def play_game(word_list):
             Game_On = False
         elif game.num_letters > 0:
             game.ask_for_letter()
-            print(game.letters_remaining)
         elif game.num_letters == 0:
             print("You Win!!!")        
             Game_On = False
